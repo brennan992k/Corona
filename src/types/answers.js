@@ -1,0 +1,3 @@
+export const ADDANSWERS = 'ADDANSWERS';
+export const ADDINFOUSER = ' ADDINFOUSER';
+export const REFRESHANSWERS = 'REFRESHANSWERS';
