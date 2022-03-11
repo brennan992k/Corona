@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import {API_NEWS, GOOGLE_API_KEY} from '../config';
 import {ERRORNEW, SUCCESSNEW, LOADINGNEW} from '../types/new';
 
 export const loading = () => ({
@@ -20,7 +22,7 @@ export default fetchNews = (page, keySearch = 'COVID') => {
     try {
       await dispatch(loading());
       await fetch(
-        `https://newsapi.org/v2/everything?q=${keySearch}&sortBy=publishedAt&apiKey=1c12afe4673c4564a0da6ab618ef4a74&pageSize=10&page=${page}`,
+        `${API_NEWS}?q=${keySearch}&sortBy=publishedAt&apiKey=${GOOGLE_API_KEY}&pageSize=10&page=${page}`,
       )
         .then(async response => {
           if (response) {
@@ -30,7 +32,6 @@ export default fetchNews = (page, keySearch = 'COVID') => {
           }
         })
         .then(async data => {
-          console.log(data);
           if (data) {
             if (data.status == 'ok') {
               await dispatch(success(data.articles, page));

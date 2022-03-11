@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import { WebView } from 'react-native-webview';
+/* eslint-disable react-native/no-inline-styles */
+import React from 'react';
+import {View} from 'react-native';
+import {WebView} from 'react-native-webview';
 import Header from '../../../component/Header/HeaderScreen';
 
 export default ({navigation, route}) => {
@@ -7,10 +9,9 @@ export default ({navigation, route}) => {
   const {url} = route.params;
   return (
     <>
-    <Header onLeft={goBack}/>
-      <WebView
-        source={{ uri: url }}
-      />
+      <Header onLeft={goBack} />
+      <View style={{height: 20}} />
+      <WebView source={{uri: url}} />
     </>
   );
 };

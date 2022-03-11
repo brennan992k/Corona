@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import {API_ALL} from '../config';
 import {ERRORALL, SUCCESSALL, LOADINGALL} from '../types/all';
 
 export const loading = () => ({
@@ -18,23 +20,13 @@ export default fetchAll = () => {
   return async dispatch => {
     try {
       await dispatch(loading());
-      await fetch('https://corona.lmao.ninja/all')
+      await fetch(API_ALL)
         .then(async response => {
-          if (response) {
-            return response.json();
-          } else {
-            fetch('http://api.coronastatistics.live/all').then(
-              async response => {
-                if (response) {
-                  return response.json();
-                }
-              },
-            );
-          }
+          return response.json();
         })
         .then(async data => {
           if (data) {
-                await dispatch(success(data));
+            await dispatch(success(data));
           } else {
             await dispatch(error('Try again, please!'));
           }

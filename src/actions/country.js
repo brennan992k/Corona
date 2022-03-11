@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import {API_COUNTRIES} from '../config';
 import {ERRORCOUNTRY, SUCCESSCOUNTRY, LOADINGCOUNTRY} from '../types/country';
 
 export const loading = () => ({
@@ -14,31 +16,21 @@ export const success = data => ({
   data: data,
 });
 
-export default fetchCountries = (sort='deaths') => {
+export default fetchCountries = (sort = 'deaths') => {
   return async dispatch => {
     try {
       await dispatch(loading());
-      await fetch(`https://corona.lmao.ninja/countries?sort=${sort}`).then(
-        async response => {
-          if (response) {
-            return response.json();
+      await fetch(`${API_COUNTRIES}?sort=${sort}`)
+        .then(async response => {
+          return response.json();
+        })
+        .then(async data => {
+          if (data) {
+            await dispatch(success(data));
           } else {
-            await fetch('http://api.coronastatistics.live/countries').then(async (response)=>{
-              if(response){
-                return response.json();
-              }else{
-                await dispatch(error('Xin vui lòng thử lại sau!'));
-              }
-            })
+            await dispatch(error('Xin vui lòng thử lại'));
           }
-        },
-      ).then(async (data)=>{
-        if(data){
-          await  dispatch(success(data));
-        }else{
-          await dispatch(error('Xin vui lòng thử lại'));
-        }
-      })
+        });
     } catch (err) {
       await dispatch(error(err));
     }

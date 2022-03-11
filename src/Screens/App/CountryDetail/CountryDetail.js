@@ -1,3 +1,5 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import {Text, View, Dimensions, ScrollView} from 'react-native';
 import HeaderScreen from '../../../component/Header/HeaderScreen';
@@ -29,30 +31,29 @@ export default ({
     deathsPerOneMillion,
     updated,
   } = countryDetail.data;
-  const {timeline} = historyDetail.data;
   const screenWidth = Dimensions.get('screen').width;
-  const onUpdateCountryDetail = async() => {
-      if(countryInfo._id){
-        await updateCountryDetail(countryInfo._id);
-      }else if(country){
-          await updateCountryDetail(country);
-      }else if(countryInfo.iso2){
-        await updateCountryDetail(countryInfo.iso2);
-      }else if(countryInfo.iso3){
-        await updateCountryDetail(countryInfo.iso3);
-      }
-  }
-  const onUpdateHistoryDetail = async() => {
-    if(countryInfo._id){
+  const onUpdateCountryDetail = async () => {
+    if (countryInfo._id) {
+      await updateCountryDetail(countryInfo._id);
+    } else if (country) {
+      await updateCountryDetail(country);
+    } else if (countryInfo.iso2) {
+      await updateCountryDetail(countryInfo.iso2);
+    } else if (countryInfo.iso3) {
+      await updateCountryDetail(countryInfo.iso3);
+    }
+  };
+  const onUpdateHistoryDetail = async () => {
+    if (countryInfo._id) {
       await updateHistoryDetail(countryInfo._id);
-    }else if(country){
-        await updateHistoryDetail(country);
-    }else if(countryInfo.iso2){
+    } else if (country) {
+      await updateHistoryDetail(country);
+    } else if (countryInfo.iso2) {
       await updateHistoryDetail(countryInfo.iso2);
-    }else if(countryInfo.iso3){
+    } else if (countryInfo.iso3) {
       await updateHistoryDetail(countryInfo.iso3);
     }
-}
+  };
 
   return (
     <>
@@ -64,24 +65,31 @@ export default ({
             style={{
               width: '100%',
               flexDirection: 'row',
-              justifyContent: 'space-around',
               alignItems: 'center',
-              marginBottom: 20,
+              margin: 10,
             }}>
             {countryInfo ? (
               <Avatar
                 isLoading={countryDetail.loading}
                 source={{uri: countryInfo.flag}}
                 style={{
-                  width: (screenWidth - 40) / 2,
-                  height: (screenWidth - 40) / 4,
+                  width: 100,
+                  height: 60,
                 }}
               />
             ) : null}
             {countryDetail.loading ? (
-              <LoadingView width={100} height={40} />
+              <View style={{marginLeft: 20}}>
+                <LoadingView width={100} height={40} />
+              </View>
             ) : (
-              <Text style={{fontSize: 30, color: 'rgb(40, 46, 56)'}}>
+              <Text
+                style={{
+                  fontSize: 30,
+                  marginLeft: 20,
+                  color: 'rgb(40, 46, 56)',
+                  textAlign: 'center',
+                }}>
                 {country}
               </Text>
             )}
@@ -143,7 +151,9 @@ export default ({
               total={critical}
               updated={new Date(updated).toDateString()}
             />
-            <Card style={{height: 40, alignSelf: 'center'}} onPress={onUpdateCountryDetail}>
+            <Card
+              style={{height: 40, alignSelf: 'center'}}
+              onPress={onUpdateCountryDetail}>
               <Text>Update</Text>
             </Card>
           </View>

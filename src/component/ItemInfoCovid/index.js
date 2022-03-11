@@ -1,5 +1,7 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
+import {nFormatter} from '../../helper';
 import Card from '../Card';
 import Icon from '../Icon';
 import Default from './Default';
@@ -16,7 +18,6 @@ export default ({
 }) => {
   const {bgPercent} = StyleSheet.create({
     bgPercent: {
-      height: 25,
       flexDirection: 'row',
       backgroundColor: color,
       padding: 10,
@@ -36,7 +37,7 @@ export default ({
             {percent != null ? (
               <Text
                 style={{fontSize: 10, color: 'rgb(31, 44, 58)', padding: 5}}>
-                {percent}
+                {nFormatter(percent)}
               </Text>
             ) : null}
 
@@ -49,13 +50,13 @@ export default ({
           </View>
           {total != null ? (
             <Text style={{fontSize: 20, color: 'rgb(31, 44, 58)', padding: 5}}>
-              {total}
+              {nFormatter(total)}
             </Text>
           ) : null}
 
           {newToday != null ? (
             <Text style={{fontSize: 15, color: 'rgb(31, 44, 58)', padding: 5}}>
-              {newToday}
+              {nFormatter(newToday)}
             </Text>
           ) : null}
 

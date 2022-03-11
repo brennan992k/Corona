@@ -8,7 +8,7 @@ import Loading from '../../component/Loading';
 export default isLoading => {
   return (
     <>
-      <Loading isLoading={isLoading}/>
+      <Loading isLoading={isLoading} />
       <View style={{flex: 1}}>
         <View style={{flex: 8, justifyContent: 'center', alignItems: 'center'}}>
           <Avatar

@@ -1,4 +1,10 @@
-import {ERRORHISTORYDETAIL, SUCCESSHISTORYDETAIL, LOADINGHISTORYDETAIL} from '../types/historyDetail';
+/* eslint-disable no-undef */
+import { API_HISTORIES } from '../config';
+import {
+  ERRORHISTORYDETAIL,
+  SUCCESSHISTORYDETAIL,
+  LOADINGHISTORYDETAIL,
+} from '../types/historyDetail';
 
 export const loading = () => ({
   type: LOADINGHISTORYDETAIL,
@@ -15,32 +21,21 @@ export const success = data => ({
 });
 
 //params can historyName, historyId, IOS2, IOS3
-export default fetchHistoryDetail = (param) => {
+export default fetchHistoryDetail = param => {
   return async dispatch => {
     try {
       await dispatch(loading());
-      await fetch(`https://corona.lmao.ninja/v2/historical/${param}`).then(
-        async response => {
-          if (response) {
-            return response.json();
+      await fetch(`${API_HISTORIES}/${param}`)
+        .then(async response => {
+          return response.json();
+        })
+        .then(async data => {
+          if (data) {
+            await dispatch(success(data));
           } else {
-            await fetch(`https://corona.lmao.ninja/v2/historical/${param}`).then(async (response)=>{
-              if(response){
-                return response.json();
-              }else{
-                await dispatch(error('Xin vui lòng thử lại sau!'));
-              }
-            })
+            await dispatch(error('Xin vui lòng thử lại'));
           }
-        },
-      ).then(async (data)=>{
-        console.log(data);
-        if(data){
-          await  dispatch(success(data));
-        }else{
-          await dispatch(error('Xin vui lòng thử lại'));
-        }
-      })
+        });
     } catch (err) {
       await dispatch(error(err));
     }

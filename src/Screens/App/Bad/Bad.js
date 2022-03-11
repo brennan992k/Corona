@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from 'react';
 import {RefreshControl, FlatList} from 'react-native';
 import Header from '../../../component/Header/HeaderScreen';
@@ -19,7 +20,7 @@ export default ({
     fetchQuestions();
   }, []);
   const {navigate, goBack} = navigation;
-  const {data, error, loading} = question;
+  const {data, loading} = question;
   const [isRefresh, setRefresh] = useState(false);
   const [err, setErr] = useState(null);
 
@@ -33,7 +34,6 @@ export default ({
   };
 
   const redirectUserInfo = () => {
-    console.log();
     if (Object.keys(answerOfUsers).length == data.length) {
       setErr(null);
       navigate('UserInfo');

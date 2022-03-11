@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View, ScrollView, StyleSheet, Dimensions} from 'react-native';
+/* eslint-disable react-native/no-inline-styles */
+import React from 'react';
+import {Text, View, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 //Components
@@ -13,12 +14,9 @@ import Card from '../../../component/Card';
 import LisenceCompanyInfo from '../../../component/LisenceCompanyInfo';
 import ButtonConfirm from '../../../component/ButtonConfirm';
 
-
-export default Home = ({tip, fetchTips}) => {
+const Home = ({tip}) => {
   const navigation = useNavigation();
   const {navigate} = navigation;
-  const screenWidth = Dimensions.get('screen').width;
-  const [position, setPosition] = useState('absolute');
 
   const redirectGood = () => {
     navigate('Good');
@@ -28,7 +26,7 @@ export default Home = ({tip, fetchTips}) => {
   };
   return (
     <Layout>
-      <Header style={{position: position}}>
+      <Header style={{position: 'absolute'}}>
         <View style={{flexDirection: 'row'}}>
           <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20}}>
             CORONAVIRUS
@@ -203,3 +201,5 @@ export default Home = ({tip, fetchTips}) => {
     </Layout>
   );
 };
+
+export default Home;

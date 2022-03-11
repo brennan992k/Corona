@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {Text, View, FlatList, RefreshControl} from 'react-native';
 import Item from '../../../component/ItemCountry';

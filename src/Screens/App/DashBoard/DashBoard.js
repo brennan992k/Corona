@@ -1,5 +1,7 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Text, View, ScrollView, Dimensions} from 'react-native';
+import {Text, View, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import ItemInfoCovid from '../../../component/ItemInfoCovid';
 import Loading from '../../../component/Loading';
@@ -15,8 +17,8 @@ export default ({all, country}) => {
 
   const redirectListCountry = () => {
     navigate('ListCountriesInfo');
-  }
-  
+  };
+
   return (
     <>
       <Loading isLoading={all.loading || country.loading} />
@@ -79,7 +81,7 @@ export default ({all, country}) => {
           <Text style={{fontSize: 20, padding: 10}}>Rate Distribution</Text>
           <View style={{alignSelf: 'center'}}></View>
         </View>
-        <ButtonCofirm title={'SEE DETAIL'}  onPress={redirectListCountry}/>
+        <ButtonCofirm title={'SEE DETAIL'} onPress={redirectListCountry} />
         <LisenceCompanyInfo
           company={'GNHA'}
           nameApp={'CORONAVIRUS'}

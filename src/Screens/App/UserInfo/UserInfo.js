@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
-import {Text, View, ScrollView, Dimensions} from 'react-native';
+import {Text, View, ScrollView} from 'react-native';
 import Header from '../../../component/Header/HeaderScreen';
-import Input from '../../../component/Search';
 import Search from '../../../component/Search';
-import Card from '../../../component/Card';
 import Error from '../../../component/Error';
 import ButtonConfirm from '../../../component/ButtonConfirm';
 
-export default ({navigation, route, addUserInfo, sendAnswers, answers}) => {
-  const screenWidth = Dimensions.get('screen').width;
+export default ({navigation, sendAnswers, answers}) => {
   const {navigate, goBack} = navigation;
   const [name, setName] = useState();
   const [phone, setPhone] = useState();
@@ -50,12 +47,7 @@ export default ({navigation, route, addUserInfo, sendAnswers, answers}) => {
     }
   };
   const onSend = async () => {
-    if (
-      answers != null &&
-      phone != null &&
-      address != null &&
-      userName != null
-    ) {
+    if (answers != null && phone != null && address != null && name != null) {
       await sendAnswers({
         answers: answers,
         phone: phone,

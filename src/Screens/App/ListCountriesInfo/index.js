@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCountries: (sort) => {
+    fetchCountries: sort => {
       dispatch(fetchCountries(sort));
     },
   };

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {connect} from 'react-redux';
@@ -14,7 +15,7 @@ const Container = ({tip, fetchTips}) => {
 
   return (
     <NavigationContainer>
-      {tip.loading? <Splash isLoading={tip.loading} /> : <App />}
+      {tip.loading ? <Splash isLoading={tip.loading} /> : <App />}
     </NavigationContainer>
   );
 };

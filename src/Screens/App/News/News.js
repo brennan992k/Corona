@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
 import {
   Text,
@@ -62,7 +63,7 @@ export default ({fetchNews, news}) => {
       <Loading isLoading={news.loading} />
       <Layout>
         <View style={{flex: 1, backgroundColor: 'white'}}>
-          <View style={{marginBottom: 20, paddingLeft: 20}}>
+          <View style={{marginBottom: 20, paddingLeft: 20, paddingTop: 40}}>
             <View style={{flexDirection: 'row'}}>
               <Text style={{fontSize: 30, fontWeight: 'bold', marginRight: 5}}>
                 News

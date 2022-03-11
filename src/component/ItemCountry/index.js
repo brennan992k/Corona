@@ -3,15 +3,13 @@ import {connect} from 'react-redux';
 import fetchCountryDetail from '../../actions/countryDetail';
 import fetchHistoryDetail from '../../actions/historyDetail';
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    fetchCountryInfo: (param) => {
+    fetchCountryInfo: param => {
       dispatch(fetchCountryDetail(param));
       dispatch(fetchHistoryDetail(param));
+    },
+  };
+};
 
-    }
-  }
-}
-
-
-export default connect(null, mapDispatchToProps)(ItemCountry)
+export default connect(null, mapDispatchToProps)(ItemCountry);

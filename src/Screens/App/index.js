@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import React from 'react';
 import TabBarBottom from '../../component/TabBarBottom';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -23,7 +22,9 @@ const Stack = createStackNavigator();
 
 const Tabs = () => {
   return (
-    <Tab.Navigator tabBar={props => <TabBarBottom {...props} />}>
+    <Tab.Navigator
+      screenOptions={{headerShown: false}}
+      tabBar={props => <TabBarBottom {...props} />}>
       <Tab.Screen component={Home} name={'Home'} />
       <Tab.Screen component={Tips} name={'Tips'} />
       <Tab.Screen component={News} name={'News'} />
@@ -34,16 +35,16 @@ const Tabs = () => {
 
 export default () => {
   return (
-   <Stack.Navigator headerMode={null}>
-     <Stack.Screen name={'Tabs'} component={Tabs}/>
-     <Stack.Screen name={'Good'} component={Good}/>
-     <Stack.Screen name={'Bad'} component={Bad}/>
-     <Stack.Screen name={'TipDetail'} component={TipDetail}/>
-     <Stack.Screen name={'ListCountriesInfo'} component={ListCountriesInfo}/>
-     <Stack.Screen name={'CountryDetail'} component={CountryDetail}/>
-     <Stack.Screen name={'NewsDetail'} component={NewsDetail}/>
-     <Stack.Screen name={'Map'} component={Map}/>
-     <Stack.Screen name={'UserInfo'} component={UserInfo}/>
-   </Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name={'Tabs'} component={Tabs} />
+      <Stack.Screen name={'Good'} component={Good} />
+      <Stack.Screen name={'Bad'} component={Bad} />
+      <Stack.Screen name={'TipDetail'} component={TipDetail} />
+      <Stack.Screen name={'ListCountriesInfo'} component={ListCountriesInfo} />
+      <Stack.Screen name={'CountryDetail'} component={CountryDetail} />
+      <Stack.Screen name={'NewsDetail'} component={NewsDetail} />
+      <Stack.Screen name={'Map'} component={Map} />
+      <Stack.Screen name={'UserInfo'} component={UserInfo} />
+    </Stack.Navigator>
   );
 };

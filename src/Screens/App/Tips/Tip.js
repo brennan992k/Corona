@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import React, {useState} from 'react';
 import {Text, View, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -25,7 +26,7 @@ export default ({tip}) => {
   return (
     <Layout>
       <View style={{flex: 1, backgroundColor: 'white', paddingBottom: 40}}>
-        <View style={{marginBottom: 20, paddingLeft: 20}}>
+        <View style={{marginBottom: 20, paddingLeft: 20, paddingTop: 40}}>
           <View style={{flexDirection: 'row'}}>
             <Text style={{fontSize: 30, fontWeight: 'bold', marginRight: 5}}>
               Official

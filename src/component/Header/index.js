@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
 
 export default ({style, children}) => {
   const {bg} = StyleSheet.create({
@@ -7,7 +7,8 @@ export default ({style, children}) => {
       height: 60,
       position: 'relative',
       zIndex: 99,
-      padding: 15,
+      paddingTop: 40,
+      paddingHorizontal: 20,
       justifyContent: 'space-between',
       flexDirection: 'row',
       width: '100%',

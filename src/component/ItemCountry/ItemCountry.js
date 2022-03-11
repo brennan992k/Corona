@@ -1,8 +1,10 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Text, View} from 'react-native';
 import Avatar from '../Avatar';
 import Button from '../Button';
 import {useNavigation} from '@react-navigation/native';
+import {nFormatter} from '../../helper';
 
 export default ({
   country,
@@ -28,7 +30,7 @@ export default ({
     }
     await navigate('CountryDetail');
   };
-  
+
   return (
     <Button
       stylePressIn={{
@@ -58,24 +60,24 @@ export default ({
           style={{
             fontWeight: 'bold',
             color: 'rgb(33, 175, 221)',
-          }}>{`${cases} Cases`}</Text>
+          }}>{`${nFormatter(cases)} Cases`}</Text>
         <Text
           style={{
             fontWeight: 'bold',
             color: 'rgb(254, 91, 91)',
-          }}>{`${deaths} Deaths`}</Text>
+          }}>{`${nFormatter(deaths)} Deaths`}</Text>
       </View>
       <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
         <Text
           style={{
             fontSize: 10,
             color: 'rgb(33, 175, 221)',
-          }}>{`+${todayCases} Cases`}</Text>
+          }}>{`+${nFormatter(todayCases)} Cases`}</Text>
         <Text
           style={{
             fontSize: 10,
             color: 'rgb(254, 91, 91)',
-          }}>{`+${todayDeaths} Deaths`}</Text>
+          }}>{`+${nFormatter(todayDeaths)} Deaths`}</Text>
         <Text
           style={{
             fontSize: 10,
