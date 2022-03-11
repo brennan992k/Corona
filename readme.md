@@ -2,7 +2,7 @@
 
 > React Native 0.67
 
-## Preview
+### Preview
 
 <img src="./demo/home.png" width="150">
 <img src="./demo/tips.png" width="150">
