@@ -5,6 +5,14 @@
 ## Preview
 
 <img src="./demo/home.png" width="150">
+<img src="./demo/tips.png" width="150">
+<img src="./demo/tip.png" width="150">
+<img src="./demo/news.png" width="150">
+<img src="./demo/question.png" width="150">
+<img src="./demo/dashboard.png" width="150">
+<img src="./demo/countries.png" width="150">
+<img src="./demo/dashboard2.png" width="150">
+<img src="./demo/good.png" width="150">
 
 ## LICENSE
 
